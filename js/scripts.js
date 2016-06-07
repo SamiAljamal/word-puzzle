@@ -1,4 +1,16 @@
 var vowels=["a","e","i","o","u"];
+var sentences = [
+  "Hi-dilly-ho, neighborinos!",
+  "Sorry to bother you, Reverend Lovejoy, but I'm kind of in a tizzy. My son Todd just told us he didn't want to eat his damn vegetables.",
+  "I’ve done everything the Bible says — even the stuff that contradicts the other stuff!",
+  "Hey Homie, I can see your doodle.",
+  "Homer, you've met my parents.",
+  "Okaley Dokely!",
+  "Stupid Flanders..."
+];
+function getRandomIndex(){
+  return Math.floor(Math.random() * sentences.length);
+  }
 $(document).ready(function(){
   $("#text").submit(function(event){
     var arrays = $("#sentence").val().split("");
@@ -12,4 +24,20 @@ $(document).ready(function(){
     event.preventDefault();
   });
 
+
+
+
+
+
+  $("#getsentence").click(function(event){
+    var arrays = sentences[getRandomIndex()].split("");
+    for(i=0; i < arrays.length; i++){
+      if (vowels.indexOf(arrays[i].toLowerCase()) !== -1){
+        arrays[i] = "-";
+      }
+    }
+    var string= arrays.join("");
+    $("p").text(string);
+    event.preventDefault();
+  });
 });
