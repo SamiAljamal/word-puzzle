@@ -19,8 +19,12 @@ var arrays = sentences[getRandomIndex()].split("");
 
 
 $(document).ready(function(){
-  $('body').keydown(function(){
-    $('li.selected').css("background-color", "pink" );
+  $('body').on('keypress', function(e){
+    var typedKey = String.fromCharCode(e.which);
+
+    //var ourkey = $(this).val();
+    //alert(ourkey);
+    $('li.selected').text(typedKey);
   });
 
   $("#getsentence").click(function(event){
