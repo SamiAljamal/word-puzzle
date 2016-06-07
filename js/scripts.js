@@ -2,8 +2,9 @@ var vowels=["a","e","i","o","u"];
 var sentences = [
   "Hey Homie, I can see your doodle.",
   "Okaley Dokely!",
-  "Stupid Flanders..."
-];
+  "Stupid Flanders...",
+  "To be, or not to be", "Frankly my Dear, I dont give a damn",
+  "That's what she said.","I'm not superstitious. I'm a little stitious","Do what you must"];
 function getRandomIndex(){
   return Math.floor(Math.random() * sentences.length);
   }
