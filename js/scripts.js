@@ -14,10 +14,11 @@ function getRandomIndex(){
 function placeOnPage(character){
   $("ul").append("<li class='character'>"+character+"</li>");
 }
-var arrays = sentences[getRandomIndex()].split("");
-var untouchedArray = arrays.slice();
+var arrays;
+var untouchedArray;
 var loser= true;
 var userAnswer = [];
+var solved = false;
 
 
 
@@ -27,7 +28,12 @@ $(document).ready(function(){
     $('li.selected').text(typedKey);
   });
 
-  $("#getsentence").click(function(event){
+  $("#getsentence").click(function(){
+    $('ul, #winnerscircle h1').empty();
+    arrays = sentences[getRandomIndex()].split("");
+    untouchedArray = arrays.slice();
+    var loser= true;
+    var userAnswer = [];
     for(i=0; i < arrays.length; i++){
       if (vowels.indexOf(arrays[i].toLowerCase()) !== -1){
         arrays[i] = "-";
@@ -60,13 +66,15 @@ $(document).ready(function(){
       }
       if (!loser) {
         $("#winnerscircle h1").text("Hey, hey!  You got it!");
+        solved= true;
       } else {
         $("#winnerscircle h1").text("Sad face.  Try again.");
+        solved = false;
       }
     });
 
 
-    event.preventDefault();
+
   });
 
 
