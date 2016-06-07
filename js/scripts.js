@@ -1,10 +1,6 @@
 var vowels=["a","e","i","o","u"];
 var sentences = [
-  "Hi-dilly-ho, neighborinos!",
-  "Sorry to bother you, Reverend Lovejoy, but I'm kind of in a tizzy. My son Todd just told us he didn't want to eat his damn vegetables.",
-  "I’ve done everything the Bible says — even the stuff that contradicts the other stuff!",
   "Hey Homie, I can see your doodle.",
-  "Homer, you've met my parents.",
   "Okaley Dokely!",
   "Stupid Flanders..."
 ];
@@ -15,6 +11,9 @@ function placeOnPage(character){
   $("ul").append("<li class='character'>"+character+"</li>");
 }
 var arrays = sentences[getRandomIndex()].split("");
+var untouchedArray = arrays.slice();
+var loser= true;
+var userAnswer = [];
 // var originalForEnd = arrays;
 
 
@@ -44,6 +43,26 @@ $(document).ready(function(){
         })
       }
     });
+
+    $('#checkit').one("click", function(){
+
+
+      for (i = 0; i < untouchedArray.length; i++) {
+        userAnswer[i] = $("#sentencelist li:EQ("+i+")").text();
+        console.log(i);
+      }
+      if ( userAnswer.join("") === untouchedArray.join("") ) {
+        loser = false;
+      } else {
+        loser = true;
+      }
+      if (!loser) {
+        $("#winnerscircle h1").text("Hey, hey!  You got it!");
+      }
+    });
+
+
+    event.preventDefault();
   });
 
   // $("li").click(function() {
