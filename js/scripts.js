@@ -16,7 +16,12 @@ function placeOnPage(character){
 }
 var arrays = sentences[getRandomIndex()].split("");
 // var originalForEnd = arrays;
+
+
 $(document).ready(function(){
+  $('body').keydown(function(){
+    $('li.selected').css("background-color", "pink" );
+  });
 
   $("#getsentence").click(function(event){
     for(i=0; i < arrays.length; i++){
@@ -31,6 +36,9 @@ $(document).ready(function(){
     $("li").click(function() {
       if ($(this).text() === "-") {
         $(this).toggleClass('selected');
+        $(this).keydown(function(){
+          alert("Handler function");
+        })
       }
     });
   });
