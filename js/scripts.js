@@ -21,9 +21,6 @@ var arrays = sentences[getRandomIndex()].split("");
 $(document).ready(function(){
   $('body').on('keypress', function(e){
     var typedKey = String.fromCharCode(e.which);
-
-    //var ourkey = $(this).val();
-    //alert(ourkey);
     $('li.selected').text(typedKey);
   });
 
@@ -39,7 +36,8 @@ $(document).ready(function(){
     }
     $("li").click(function() {
       $('.selected').removeClass('selected').css('background-color', '#fff');
-      if ($(this).text() === "-") {
+      if (($(this).text() === "-") || $(this).hasClass("verified")) {
+        $(this).addClass("verified");
         $(this).toggleClass('selected');
         $(this).keydown(function(){
           alert("Handler function");
