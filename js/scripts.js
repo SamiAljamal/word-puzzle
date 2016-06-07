@@ -47,8 +47,7 @@ $(document).ready(function(){
       }
     });
 
-    $('#checkit').one("click", function(){
-
+    $('#checkit').click(function(){
 
       for (i = 0; i < untouchedArray.length; i++) {
         userAnswer[i] = $("#sentencelist li:EQ("+i+")").text();
