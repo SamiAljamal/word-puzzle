@@ -11,33 +11,32 @@ var sentences = [
 function getRandomIndex(){
   return Math.floor(Math.random() * sentences.length);
   }
+function placeOnPage(character){
+  $("ul").append("<li class='character'>"+character+"</li>");
+}
+var arrays = sentences[getRandomIndex()].split("");
+// var originalForEnd = arrays;
 $(document).ready(function(){
-  $("#text").submit(function(event){
-    var arrays = $("#sentence").val().split("");
-    for(i=0; i < arrays.length; i++){
-      if (vowels.indexOf(arrays[i].toLowerCase()) !== -1){
-        arrays[i] = "-";
-      }
-    }
-    var string= arrays.join("");
-    $("p").text(string);
-    event.preventDefault();
-  });
-
-
-
-
-
 
   $("#getsentence").click(function(event){
-    var arrays = sentences[getRandomIndex()].split("");
     for(i=0; i < arrays.length; i++){
       if (vowels.indexOf(arrays[i].toLowerCase()) !== -1){
         arrays[i] = "-";
       }
     }
-    var string= arrays.join("");
-    $("p").text(string);
-    event.preventDefault();
+    var string= arrays.join("");//currently not doing anything
+    for (i = 0; i < arrays.length; i++) {
+      placeOnPage(arrays[i]);
+    }
+    $("li").click(function() {
+      if ($(this).text() === "-") {
+        $(this).toggleClass('selected');
+      }
+    });
   });
+
+  // $("li").click(function() {
+  //   $(this).toggleClass('selected');
+  // });
+
 });
