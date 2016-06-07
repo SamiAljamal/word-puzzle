@@ -1,10 +1,13 @@
 var vowels=["a","e","i","o","u"];
 var sentences = [
-  "Hey Homie, I can see your doodle.",
   "Okaley Dokely!",
   "Stupid Flanders...",
-  "To be, or not to be", "Frankly my Dear, I dont give a damn",
-  "That's what she said.","I'm not superstitious. I'm a little stitious","Do what you must"];
+  "To be, or not to be",
+  "That's what she said.",
+  "Do what you must",
+  "Use the Force.",
+  "Alright, alright, alright"
+  ];
 function getRandomIndex(){
   return Math.floor(Math.random() * sentences.length);
   }
@@ -15,7 +18,7 @@ var arrays = sentences[getRandomIndex()].split("");
 var untouchedArray = arrays.slice();
 var loser= true;
 var userAnswer = [];
-// var originalForEnd = arrays;
+
 
 
 $(document).ready(function(){
@@ -30,7 +33,6 @@ $(document).ready(function(){
         arrays[i] = "-";
       }
     }
-    var string= arrays.join("");//currently not doing anything
     for (i = 0; i < arrays.length; i++) {
       placeOnPage(arrays[i]);
     }
@@ -59,6 +61,8 @@ $(document).ready(function(){
       }
       if (!loser) {
         $("#winnerscircle h1").text("Hey, hey!  You got it!");
+      } else {
+        $("#winnerscircle h1").text("Sad face.  Try again.");
       }
     });
 
@@ -66,8 +70,6 @@ $(document).ready(function(){
     event.preventDefault();
   });
 
-  // $("li").click(function() {
-  //   $(this).toggleClass('selected');
-  // });
+
 
 });

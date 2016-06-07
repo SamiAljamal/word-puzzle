@@ -34,3 +34,9 @@ li.selected {
   font-size: 50px;
   font-family: 'Bangers', cursive;
 }
+
+#winnerscircle h1 {
+  font-family: "Source Code Pro";
+  text-shadow: 0px 0px 20px #f88;
+  padding-left: 30px;
+}
