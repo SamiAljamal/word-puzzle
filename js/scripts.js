@@ -34,6 +34,7 @@ $(document).ready(function(){
       placeOnPage(arrays[i]);
     }
     $("li").click(function() {
+      $('.selected').removeClass('selected').css('background-color', '#fff');
       if ($(this).text() === "-") {
         $(this).toggleClass('selected');
         $(this).keydown(function(){
